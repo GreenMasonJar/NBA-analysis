@@ -2,7 +2,20 @@ import os
 import glob
 import pandas as pd
 
-#reading the csv files for last 10 years
+#Analysis after reading and writing to new csv
+def analyze (file):
+    df = pd.read_csv(file)
+
+    data = 0
+    print('---THIS IS WINNER CSV---')
+    for i in range (len(df)):
+        for j in header[1:]:
+            value = getattr(df, j)[i]
+            print(value)
+
+        
+
+#reading the csv files in the same folder
 csv_files = glob.glob('*.{}'.format('csv'))
 #For every csv file
 for file in csv_files:
@@ -43,5 +56,7 @@ for file in csv_files:
         print('This is data', data)
         data = pd.DataFrame(data, columns=header)
         data.to_csv('NEW.csv', index=False)
+
+analyze('NEW.csv')
     
 
