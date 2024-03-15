@@ -6,12 +6,20 @@ import pandas as pd
 def analyze (file):
     df = pd.read_csv(file)
 
-    data = 0
+    #Find winner for point diff, win percentage, and Total wins
+        #Iterate through the column, find the biggest, that team is the winner
+    #Then check winners for each, count how may each winner showed up
+        #Create an array of the winners, Go through each and count number of wins
+    #Team with most occurances of wins is overall winner
+    #write the winners onto new CSV
+    winner = ""
     print('---THIS IS WINNER CSV---')
-    for i in range (len(df)):
-        for j in header[1:]:
-            value = getattr(df, j)[i]
-            print(value)
+    for i in range(len(df)):
+        #This is each row
+        for j in range(len(df.columns)):
+            print(df.iloc[i, j])
+            
+        
 
         
 
