@@ -48,7 +48,9 @@ def analyze (file):
                     winPerc = getattr(df, 'TEAM')[i]
                 elif value == winscr:
                     winPerc = winPerc + ", " + getattr(df, 'TEAM')[i]
-    
+    print(pDIFFwin)
+    print(GPwin) 
+    print(winPerc)
                 
                     
             
