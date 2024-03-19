@@ -14,10 +14,44 @@ def analyze (file):
     #write the winners onto new CSV
     winner = ""
     print('---THIS IS WINNER CSV---')
+    
+    pDIFFwin = ''
+    GPwin = ''
+    winPerc = ''
+    pDIFFscr = 0
+    GPscr = 0
+    winscr = 0
     for i in range(len(df)):
         #This is each row
-        for j in range(len(df.columns)):
-            print(df.iloc[i, j])
+        for j in header:
+            value = getattr(df, j)[i]
+            if j == 'TEAM':
+                pass
+            
+            elif j == 'pDIFF':
+                if value > pDIFFscr:
+                    pDIFFscr = value
+                    pDIFFwin = getattr(df, 'TEAM')[i]
+                elif value == pDIFFscr:
+                    pDIFFwin = pDIFFwin + ", " + getattr(df, 'TEAM')[i]
+            
+            elif j == 'GP':
+                if value > GPscr:
+                    GPscr = value
+                    GPwin = getattr(df, 'TEAM')[i]
+                elif value == GPscr:
+                    GPwin = GPwin + ", " + getattr(df, 'TEAM')[i]
+            
+            elif j == 'W':
+                if value > winscr:
+                    winscr = value
+                    winPerc = getattr(df, 'TEAM')[i]
+                elif value == winscr:
+                    winPerc = winPerc + ", " + getattr(df, 'TEAM')[i]
+    
+                
+                    
+            
             
         
 
