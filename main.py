@@ -48,10 +48,10 @@ def analyze (file):
                     winPerc = getattr(df, 'TEAM')[i]
                 elif value == winscr:
                     winPerc = winPerc + ", " + getattr(df, 'TEAM')[i]
-    print(pDIFFwin)
-    print(GPwin) 
-    print(winPerc)
-                
+    
+    data = {'Stat': ['pDIFF', 'GP', 'W'], 'Winner': [pDIFFwin, GPwin, winPerc], 'Score': [pDIFFscr, GPscr, winscr]}
+    newdf = pd.DataFrame(data, columns = ['Stat', 'Winner', 'Score'])
+    newdf.to_csv('WINNERS.csv')                
                     
             
             
